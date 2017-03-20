@@ -1,3 +1,16 @@
+<%
+    if(session.getAttribute("id")!=null){
+        response.sendRedirect("student_dashboard.jsp");
+        
+    }
+    
+    else{
+    
+    
+    %>
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,12 +28,12 @@
             </div>
             <div class="tab-content">
                 <div id="login" class="tab-pane active">
-                    <form action="student_dashboard.jsp" class="form-signin">
+                    <form action="Student_Login_Controller" class="form-signin" method="post">
                         <p class="muted text-center">
                             Enter your username and password
                         </p>
-                        <input type="text" placeholder="Username" class="input-block-level">
-                        <input type="password" placeholder="Password" class="input-block-level">
+                        <input type="text" placeholder="Email" class="input-block-level" name="email">
+                        <input type="password" placeholder="Password" class="input-block-level" name="password">
                         <button class="btn btn-large btn-primary btn-block" type="submit">Sign in</button>
                     </form>
                 </div>
@@ -66,3 +79,8 @@
         </script>
     </body>
 </html>
+
+
+<%
+    }
+%>

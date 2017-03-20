@@ -1,20 +1,19 @@
 
+<% if(session.getAttribute("id")==null){
+    response.sendRedirect("admin_login.jsp");    
+    }
+else{
+
+    %>
+
+
+
+
+     
 <%@page import="java.util.Date"%>
-<%@page import="ServletController.AdminLoginModel"%>
+<%@page import="Model_Class.AdminLoginModel"%>
+
 <!DOCTYPE html>
-
-
-<%
-    Date lastvisit = new Date();
-
-    session.setAttribute("id", AdminLoginModel.getId());
-    session.setAttribute("name", AdminLoginModel.getName());
-    session.setAttribute("email", AdminLoginModel.getEmail());
-    session.setAttribute("lastvisit", lastvisit.toString());
-
-%>
-
-
 
 <html class="no-js">
     <head>
@@ -295,3 +294,10 @@
 
     </body>
 </html>
+
+
+<%
+    }
+
+
+%>
