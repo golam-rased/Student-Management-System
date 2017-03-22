@@ -352,7 +352,7 @@
                                                         <td><% out.println(view.getRegiNo());%></td>
                                                         <td>
                                                             <a href="edit_student.jsp?id=<%= view.getId()%>">Edit</a>
-                                                            <a href="delete?id=<% out.println(view.getId()); %>">Delete</a>
+                                                            <a href="Delete_Student_Controller?id=<% out.println(view.getId()); %>">Delete</a>
                                                         </td>
                                                     </tr>
                                                     <%

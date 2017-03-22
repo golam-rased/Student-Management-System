@@ -327,7 +327,7 @@
                                                         <td><% out.println(view.getMobile()); %></td>
                                                         <td>
                                                             <a href="edit_teacher.jsp?id=<%= view.getId() %>">Edit</a>
-                                                            <a href="Delete_teacher?id=<% out.println(view.getId()); %>">Delete</a>
+                                                            <a href="Delete_Teacher_Controller?id=<% out.println(view.getId()); %>">Delete</a>
                                                             
                                                             
                                                         </td>
