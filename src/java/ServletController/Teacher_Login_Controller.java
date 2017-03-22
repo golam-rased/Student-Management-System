@@ -44,6 +44,7 @@ public class Teacher_Login_Controller extends HttpServlet {
             session.setAttribute("address", Teacher_Login_Model.getAddress());
             session.setAttribute("joindate", Teacher_Login_Model.getJoinDate());
             session.setAttribute("lastvisit", lastvisit.toString());
+            
             RequestDispatcher rd = request.getRequestDispatcher("teacher_dashboard.jsp");
             rd.forward(request, response);
 

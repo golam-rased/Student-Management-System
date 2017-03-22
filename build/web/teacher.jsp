@@ -1,5 +1,6 @@
 <%@page import="java.util.List"%>
 <%@page import="Model_Class.Teacher_View_Model"%>
+<%--<%@taglib  %>--%>
 <!DOCTYPE html>
 
 <html class="no-js">
@@ -324,7 +325,12 @@
                                                         <td><% out.println(view.getDesignation()); %></td>
                                                         <td><% out.println(view.getEmail()); %></td>
                                                         <td><% out.println(view.getMobile()); %></td>
-                                                        <td>Action Button</td>
+                                                        <td>
+                                                            <a href="edit_teacher.jsp?id=<%= view.getId() %>">Edit</a>
+                                                            <a href="Delete_teacher?id=<% out.println(view.getId()); %>">Delete</a>
+                                                            
+                                                            
+                                                        </td>
                                                         
                                                         
                                                     </tr>

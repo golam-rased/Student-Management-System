@@ -15,7 +15,8 @@ import java.util.List;
  *
  * @author rashu
  */
-public class Teacher_View_Model {
+public class Edit_Teacher_Model {
+    
     
     private int id;
     private String fullName;
@@ -29,43 +30,19 @@ public class Teacher_View_Model {
     private String address;
     private String joinDate;
     private String password;
-
-    public Teacher_View_Model() {
-    }
-
-    public Teacher_View_Model(int id, String fullName, String designation, String birthDate, String gender, String bloodGroup, String religion, String email, String mobile, String address, String joinDate) {
-        this.id = id;
-        this.fullName = fullName;
-        this.designation = designation;
-        this.birthDate = birthDate;
-        this.gender = gender;
-        this.bloodGroup = bloodGroup;
-        this.religion = religion;
-        this.email = email;
-        this.mobile = mobile;
-        this.address = address;
-        this.joinDate = joinDate;
-        
-    }
     
     
-    
-    
-
-    
-    
-    
-    public static List<Teacher_View_Model> getAllTeacher(){
-        List<Teacher_View_Model> list=new ArrayList<Teacher_View_Model>();
+    public static List<Edit_Teacher_Model> getTeacherById(int id){
+        List<Edit_Teacher_Model> list=new ArrayList<Edit_Teacher_Model>();
         try {
 
             Connection conn = Database_Connection.getCon();
-            PreparedStatement ps = conn.prepareStatement("select id, name, designation,birthdate,gender,bloodgroup,religion,email,mobile,address,joindate from tbl_teacher");
-
+            PreparedStatement ps = conn.prepareStatement("select id, name, designation,birthdate,gender,bloodgroup,religion,email,mobile,address,joindate from tbl_teacher where id="+id);
+            
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Teacher_View_Model teacher = new Teacher_View_Model();
+                Edit_Teacher_Model teacher = new Edit_Teacher_Model();
                 teacher.setId(rs.getInt(1));
                 teacher.setFullName(rs.getString(2));
                 teacher.setDesignation(rs.getString(3));
@@ -89,9 +66,7 @@ public class Teacher_View_Model {
         
         return list;
     }
-    
-    
-    
+
     public int getId() {
         return id;
     }
@@ -187,12 +162,6 @@ public class Teacher_View_Model {
     public void setPassword(String password) {
         this.password = password;
     }
-
-   
-    
-    
-    
-    
     
     
     

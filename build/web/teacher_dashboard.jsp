@@ -1,9 +1,9 @@
-<%
-    
-    
+<% if(session.getAttribute("id")==null){
+    response.sendRedirect("teacher_login.jsp");    
+    }
+else{
 
-%>
-
+    %>
 
 <%@page import="Model_Class.Teacher_Login_Model"%>
 <%@page import="java.util.Date"%>
@@ -445,3 +445,7 @@
 
     </body>
 </html>
+
+<%
+    }
+%>

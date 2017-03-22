@@ -15,11 +15,10 @@ import java.util.List;
  *
  * @author rashu
  */
-public class Teacher_View_Model {
+public class Edit_Student_Model {
     
     private int id;
     private String fullName;
-    private String designation;
     private String birthDate;
     private String gender;
     private String bloodGroup;
@@ -27,58 +26,37 @@ public class Teacher_View_Model {
     private String email;
     private String mobile;
     private String address;
-    private String joinDate;
-    private String password;
-
-    public Teacher_View_Model() {
-    }
-
-    public Teacher_View_Model(int id, String fullName, String designation, String birthDate, String gender, String bloodGroup, String religion, String email, String mobile, String address, String joinDate) {
-        this.id = id;
-        this.fullName = fullName;
-        this.designation = designation;
-        this.birthDate = birthDate;
-        this.gender = gender;
-        this.bloodGroup = bloodGroup;
-        this.religion = religion;
-        this.email = email;
-        this.mobile = mobile;
-        this.address = address;
-        this.joinDate = joinDate;
-        
-    }
+    private String studentClass;
+    private String roll;
+    private String regiNo;
     
     
     
-    
-
-    
-    
-    
-    public static List<Teacher_View_Model> getAllTeacher(){
-        List<Teacher_View_Model> list=new ArrayList<Teacher_View_Model>();
+    public static List<Edit_Student_Model> getStudentById(int id){
+        List<Edit_Student_Model> list=new ArrayList<Edit_Student_Model>();
         try {
 
             Connection conn = Database_Connection.getCon();
-            PreparedStatement ps = conn.prepareStatement("select id, name, designation,birthdate,gender,bloodgroup,religion,email,mobile,address,joindate from tbl_teacher");
-
+            PreparedStatement ps = conn.prepareStatement("select id, name,birthdate,gender,bloodgroup,religion,email,mobile,address,studentclass,roll,registration from tbl_student where id="+id);
+            
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Teacher_View_Model teacher = new Teacher_View_Model();
-                teacher.setId(rs.getInt(1));
-                teacher.setFullName(rs.getString(2));
-                teacher.setDesignation(rs.getString(3));
-                teacher.setBirthDate(rs.getString(4));
-                teacher.setGender(rs.getString(5));
-                teacher.setBloodGroup(rs.getString(6));
-                teacher.setReligion(rs.getString(7));
-                teacher.setEmail(rs.getString(8));
-                teacher.setMobile(rs.getString(9));
-                teacher.setAddress(rs.getString(10));
-                teacher.setJoinDate(rs.getString(11));
+                Edit_Student_Model student = new Edit_Student_Model();
+                student.setId(rs.getInt(1));
+                student.setFullName(rs.getString(2));
+                student.setBirthDate(rs.getString(3));
+                student.setGender(rs.getString(4));
+                student.setBloodGroup(rs.getString(5));
+                student.setReligion(rs.getString(6));
+                student.setEmail(rs.getString(7));
+                student.setMobile(rs.getString(8));
+                student.setAddress(rs.getString(9));
+                student.setStudentClass(rs.getString(10));
+                student.setRoll(rs.getString(11));
+                student.setRegiNo(rs.getString(12));
                 
-                list.add(teacher);
+                list.add(student);
                 
             }
             conn.close();
@@ -91,7 +69,7 @@ public class Teacher_View_Model {
     }
     
     
-    
+
     public int getId() {
         return id;
     }
@@ -106,14 +84,6 @@ public class Teacher_View_Model {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public String getDesignation() {
-        return designation;
-    }
-
-    public void setDesignation(String designation) {
-        this.designation = designation;
     }
 
     public String getBirthDate() {
@@ -172,28 +142,29 @@ public class Teacher_View_Model {
         this.address = address;
     }
 
-    public String getJoinDate() {
-        return joinDate;
+    public String getStudentClass() {
+        return studentClass;
     }
 
-    public void setJoinDate(String joinDate) {
-        this.joinDate = joinDate;
+    public void setStudentClass(String studentClass) {
+        this.studentClass = studentClass;
     }
 
-    public String getPassword() {
-        return password;
+    public String getRoll() {
+        return roll;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setRoll(String roll) {
+        this.roll = roll;
     }
 
-   
-    
-    
-    
-    
-    
+    public String getRegiNo() {
+        return regiNo;
+    }
+
+    public void setRegiNo(String regiNo) {
+        this.regiNo = regiNo;
+    }
     
     
     

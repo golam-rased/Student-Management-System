@@ -36,6 +36,14 @@
         <servlet-name>Teacher_Logout_Controller</servlet-name>
         <servlet-class>ServletController.Teacher_Logout_Controller</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Edit_Teacher_Controller</servlet-name>
+        <servlet-class>ServletController.Edit_Teacher_Controller</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Edit_Student_Controller</servlet-name>
+        <servlet-class>ServletController.Edit_Student_Controller</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminLogin</servlet-name>
         <url-pattern>/AdminLogin</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>Teacher_Logout_Controller</servlet-name>
         <url-pattern>/Teacher_Logout_Controller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Edit_Teacher_Controller</servlet-name>
+        <url-pattern>/Edit_Teacher_Controller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Edit_Student_Controller</servlet-name>
+        <url-pattern>/Edit_Student_Controller</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

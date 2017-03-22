@@ -19,32 +19,32 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author rashu
  */
-public class Student_Registration_Controller extends HttpServlet {
+public class Edit_Student_Controller extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         PrintWriter out = response.getWriter();
         
-        String name=request.getParameter("student_name");
-        String birthDate=request.getParameter("birth_date");
-        String gender=request.getParameter("gender");
-        String bloodGroup=request.getParameter("blood_group");
-        String religion=request.getParameter("religion");
-        String email=request.getParameter("email");
-        String mobile=request.getParameter("mobile");
-        String address=request.getParameter("address");
+        String tid = request.getParameter("studentId");
+        int id= Integer.parseInt(tid);
+        String name = request.getParameter("student_name");
+        String birthDate = request.getParameter("birth_date");
+        String gender = request.getParameter("gender");
+        String bloodGroup = request.getParameter("blood_group");
+        String religion = request.getParameter("religion");
+        String email = request.getParameter("email");
+        String mobile = request.getParameter("mobile");
+        String address = request.getParameter("address");
         String studentClass = request.getParameter("student_class");
-        String roll = request.getParameter("roll");
-        String regNo = request.getParameter("reg_no");
-        String password=request.getParameter("password");
+        String roll= request.getParameter("roll");
+        String regNo= request.getParameter("reg_no");
         
-        
-        try{
+        try {
+
             Connection conn = Database_Connection.getCon();
-            PreparedStatement ps = conn.prepareStatement("insert into tbl_student values(seq_id_student.nextval,?,?,?,?,?,?,?,?,?,?,?,?)");
-            
-            
-            ps.setString(1, name);   
+            PreparedStatement ps = conn.prepareStatement("update tbl_student set name=?,birthdate=?,gender=?,bloodgroup=?,religion=?,email=?,mobile=?,address=?,studentclass=?,roll=?,registration=? where id=?");
+            ps.setString(1, name);
             ps.setString(2, birthDate);
             ps.setString(3, gender);
             ps.setString(4, bloodGroup);
@@ -55,24 +55,23 @@ public class Student_Registration_Controller extends HttpServlet {
             ps.setString(9, studentClass);
             ps.setString(10, roll);
             ps.setString(11, regNo);
-            ps.setString(12, password);
+            ps.setInt(12, id);
             
-            int x = ps.executeUpdate();
             
-            if(x==1){
-                out.println("Registration Successfull");
+            
+            
+            int result = ps.executeUpdate();
+
+            if (result == 1) {
+                out.println("Student Profile Updated Successfully");
+            } else {
+                out.println("Invalid");
             }
-            else{
-                out.println("Registration Failed");
-            }
-            
-            
-        }catch(Exception e){
-            
+
+        } catch (Exception e) {
+
         }
-        
-       
+
     }
 
- 
-}
+    }

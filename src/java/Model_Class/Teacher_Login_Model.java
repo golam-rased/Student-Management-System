@@ -75,7 +75,7 @@ public class Teacher_Login_Model {
                 address = rs.getString(10);
                 joinDate = rs.getString(11);
                 
-                Teacher_Login_Model teach = new Teacher_Login_Model(id, name, designation, birthDate, gender, bloodGroup, religion, email, mobile, address, joinDate);
+                //Teacher_Login_Model teach = new Teacher_Login_Model(id, name, designation, birthDate, gender, bloodGroup, religion, email, mobile, address, joinDate);
                 
 
             }
