@@ -28,7 +28,7 @@ public class Delete_Student_Controller extends HttpServlet {
 
         if (Delete_Student_Model.deleteStudentById(id) == 1) {
             
-            out.println("Student Profile Deleted Successfully");
+            response.sendRedirect("student.jsp");
             
         }
         else{

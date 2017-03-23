@@ -63,7 +63,8 @@ public class Edit_Student_Controller extends HttpServlet {
             int result = ps.executeUpdate();
 
             if (result == 1) {
-                out.println("Student Profile Updated Successfully");
+                response.sendRedirect("student.jsp");
+                
             } else {
                 out.println("Invalid");
             }

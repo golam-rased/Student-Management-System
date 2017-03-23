@@ -22,17 +22,16 @@ public class Delete_Teacher_Controller extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
         PrintWriter out = response.getWriter();
         String studentId = request.getParameter("id");
         int id = Integer.parseInt(studentId);
 
         if (Delete_Teacher_Model.deleteTeacherById(id) == 1) {
-            
-            out.println("Teacher Profile Deleted Successfully");
-            
-        }
-        else{
+
+            response.sendRedirect("teacher.jsp");
+
+        } else {
             out.println("Failed");
         }
 

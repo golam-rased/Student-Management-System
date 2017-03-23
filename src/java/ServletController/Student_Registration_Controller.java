@@ -60,7 +60,7 @@ public class Student_Registration_Controller extends HttpServlet {
             int x = ps.executeUpdate();
             
             if(x==1){
-                out.println("Registration Successfull");
+                response.sendRedirect("student.jsp");
             }
             else{
                 out.println("Registration Failed");
